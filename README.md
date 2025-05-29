@@ -114,7 +114,7 @@ Press `Cmd-Shift-P` (or `Ctrl-Shift-P`), then `MCP: Add Server...`. Select `Comm
 
 ### Bun
 
-Even though this project is built with Bun the `mermaider` package can not be run directly with `bunx` at the moment. You would have to install the package globally with `bun add -d @vtomilin/mermaider` first. Then you can just use `mermaider-bun` executable to run the server:
+Even though this project is built with Bun the `mermaider` package can not be run directly with `bunx` at the moment. You would have to install the package globally with `bun add -g @vtomilin/mermaider` first. Then you can just use `mermaider-bun` executable to run the server:
 
 ```json
 {
