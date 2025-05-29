@@ -153,3 +153,7 @@ Example sessions using Github Copilot in VSCode:
 [3]: <https://github.com/mermaid-js/mermaid> "mermaid-js/mermaid API package"
 [4]: <https://github.com/capricorn86/happy-dom> "happy-dom"
 [5]: <https://github.com/jsdom/jsdom> "jsdom"
+
+### License
+
+[MIT](LICENSE)
