@@ -1,0 +1,3 @@
+[run]
+# Always run with `--bun`
+# bun = true

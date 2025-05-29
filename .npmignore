@@ -1,0 +1,6 @@
+ai/
+.vscode/
+/bunconfig.*
+tests/
+tsconfig.*
+*.tgz

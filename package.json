@@ -1,29 +1,48 @@
 {
-  "name": "mermaider",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "vitest run --environment node"
-  },
-  "keywords": [],
-  "author": "Vitaly Tomilin <vitaly.tomilin+mermaider@gmail.com>",
-  "license": "ISC",
+  "name": "@vtomilin/mermaider",
   "type": "module",
+  "version": "0.2.0",
+  "description": "MCP server for fast Mermaid diagrams syntax checking",
+  "keywords": [
+    "mermaid",
+    "mcp",
+    "model context protocol",
+    "diagram",
+    "mcp server"
+  ],
+  "author": {
+    "name": "Vitaly Tomilin",
+    "email": "vitaly.tomilin+mermaider@gmail.com"
+  },
+  "license": "MIT",
+  "files": [
+    "bin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vtomilin/mermaider.git"
+  },
+  "bin": {
+    "mermaider": "./bin/index.js",
+    "mermaider-bun": "./bin/index-bun.js"
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir=./bin --target=node --minify --sourcemap",
+    "build-bun": "bun build ./src/index.ts --outdir=./bin --target=bun --minify --sourcemap --entry-naming [dir]/[name]-bun.[ext]",
+    "build-native": "bun build src/index.ts --compile --minify --sourcemap --outfile bin/mermaider",
+    "prepare": "bun run build; bun run build-bun",
+    "inspect": "bunx @modelcontextprotocol/inspector bun run ./src/index.js"
+  },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.21",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.3.4",
-    "typescript": "^5.8.3",
-    "vitest": "^3.1.4",
     "@types/bun": "latest"
   },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.0",
-    "@types/mermaid": "^9.2.0",
-    "mermaid": "^11.6.0",
-    "sharp": "^0.34.2"
+  "peerDependencies": {
+    "typescript": "^5"
   },
-  "private": true
+  "dependencies": {
+    "@mermaid-js/mermaid-zenuml": "^0.2.0",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "mermaid": "^11.6.0",
+    "puppeteer-core": "^24.9.0"
+  }
 }

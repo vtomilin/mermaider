@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "mermaider": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/svava/Projects/AI/MCP/mermaider/bin/index.js",
+        "/Users/svava/Projects/AI/MCP/mermaider/etc/Firefox.json"
+      ]
+    }
+  }
+}
