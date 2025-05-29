@@ -16,6 +16,7 @@
   - [Usage Examples](#usage-examples)
   - [References](#references)
     - [Other Mermaid related MCP servers](#other-mermaid-related-mcp-servers)
+    - [License](#license)
 
 <!-- markdown-toc end -->
 
