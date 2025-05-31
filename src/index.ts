@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import type { Browser } from "puppeteer-core";
 import run from "./mcp";
 import { withBrowser, withPage } from "./runtime";
