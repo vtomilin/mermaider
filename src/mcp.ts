@@ -1,14 +1,16 @@
-import { verifyDiagramSyntax } from "./mermaider";
+import process from "node:process";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import type { Page } from "puppeteer-core";
 import { z } from "zod";
+import pkg from "../package.json" with { type: "json" };
+import { verifyDiagramSyntax } from "./mermaider";
 
 export default async function run(page: Page): Promise<void> {
   // Create MCP server
   const server = new McpServer({
     name: "mermaider",
-    version: "0.0.1",
+    version: pkg.version,
   });
 
   server.tool(
@@ -40,11 +42,22 @@ export default async function run(page: Page): Promise<void> {
   const transport = new StdioServerTransport();
   // Trick to keep the browser/page context alive until the transport is closed
   const transportClosed = new Promise<void>((resolve) => {
-    transport.onclose = () => {
-      console.error("MCP server transport closed.");
+    process.stdin.on("close", () => {
+      console.error("MCP server transport closed gracefully.");
       resolve();
-    };
+    });
+    // Watch the parent process, exit once it exits
+    const timer = setInterval(() => {
+      try {
+        process.kill(process.ppid, 0);
+      } catch (error) {
+        // Parent does not exist
+        console.error("Parent process exited, shutting down...");
+        clearInterval(timer);
+        resolve();
+      }
+    }, 1000);
   });
   await server.connect(transport);
-  await transportClosed;
+  return transportClosed;
 }

@@ -1,7 +1,7 @@
 {
   "name": "@vtomilin/mermaider",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "MCP server for fast Mermaid diagrams syntax checking",
   "keywords": [
     "mermaid",
@@ -32,7 +32,11 @@
     "build-bun": "bun build ./src/index.ts --outdir=./bin --target=bun --minify --sourcemap --entry-naming [dir]/[name]-bun.[ext]",
     "build-native": "bun build src/index.ts --compile --minify --sourcemap --outfile bin/mermaider",
     "prepare": "bun run build; bun run build-bun",
-    "inspect": "bunx @modelcontextprotocol/inspector bun run ./src/index.js"
+    "publish": " bun publish --access public",
+    "inspect": "bunx @modelcontextprotocol/inspector bun run ./src/index.js etc/Firefox.json",
+    "node-debug": "bunx @modelcontextprotocol/inspector node --inspect ./bin/index.js etc/Firefox.json",
+    "bun-debug": "bunx @modelcontextprotocol/inspector bun --inspect ./bin/index-bun.js etc/Firefox.json",
+    "inspect-bin": "bunx @modelcontextprotocol/inspector node ./bin/index.js etc/Firefox.json"
   },
   "devDependencies": {
     "@types/bun": "latest"
