@@ -1,5 +1,5 @@
 /**
- * @module ApplicationConfig
+ * @module config
  *
  * This module provides types and functions to configure the application.
  * It includes configuration interfaces, validation utilities, and helpers

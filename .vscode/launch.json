@@ -27,14 +27,6 @@
         {
             "type": "bun",
             "internalConsoleOptions": "neverOpen",
-            "request": "attach",
-            "name": "Attach Bun",
-            "url": "ws://localhost:6499/",
-            "stopOnEntry": false
-        },
-        {
-            "type": "bun",
-            "internalConsoleOptions": "neverOpen",
             "request": "launch",
             "name": "Debug Tests",
             "program": "${workspaceFolder}/tests/mermaider.spec.ts",
